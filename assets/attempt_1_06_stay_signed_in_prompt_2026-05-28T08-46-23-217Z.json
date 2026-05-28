@@ -1,0 +1,114 @@
+{
+  "url": "https://login.microsoftonline.com/common/login",
+  "title": "Sign in to your account",
+  "readyState": "complete",
+  "bodyText": "accounting@boulderweekly.com\nStay signed in?\nDo this to reduce the number of times you are asked to sign in.\nDon't show this again\n \n\n\nTerms of use Privacy & cookies ...",
+  "inputs": [
+    {
+      "id": "",
+      "name": "LoginOptions",
+      "type": "hidden",
+      "valueLength": 1,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "type",
+      "type": "hidden",
+      "valueLength": 2,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "ctx",
+      "type": "hidden",
+      "valueLength": 580,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "hpgrequestid",
+      "type": "hidden",
+      "valueLength": 36,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "flowToken",
+      "type": "hidden",
+      "valueLength": 1407,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "KmsiCheckboxField",
+      "name": "DontShowAgain",
+      "type": "checkbox",
+      "valueLength": 4,
+      "placeholder": "",
+      "ariaLabel": "Don't show this again"
+    },
+    {
+      "id": "idBtn_Back",
+      "name": "",
+      "type": "button",
+      "valueLength": 2,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "idSIButton9",
+      "name": "",
+      "type": "submit",
+      "valueLength": 3,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "canary",
+      "type": "hidden",
+      "valueLength": 99,
+      "placeholder": "",
+      "ariaLabel": null
+    },
+    {
+      "id": "",
+      "name": "i19",
+      "type": "hidden",
+      "valueLength": 0,
+      "placeholder": "",
+      "ariaLabel": null
+    }
+  ],
+  "buttons": [
+    {
+      "id": "idBtn_Back",
+      "role": null,
+      "type": "button",
+      "text": "No"
+    },
+    {
+      "id": "ftrTerms",
+      "role": null,
+      "type": "",
+      "text": "Terms of use"
+    },
+    {
+      "id": "ftrPrivacy",
+      "role": null,
+      "type": "",
+      "text": "Privacy & cookies"
+    },
+    {
+      "id": "moreOptions",
+      "role": "button",
+      "type": "",
+      "text": "..."
+    }
+  ]
+}

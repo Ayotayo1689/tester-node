@@ -1,0 +1,150 @@
+{
+  "url": "https://account.microsoft.com/auth/complete-signin-oauth?code=1.AUYA4qnwqbz_606HMsnHvOvd3u2s_oHdXedBi-8-IKJom7cAAABGAA.BQABBAIAAAADAOz_BQD0_0V2b1N0c0FydGlmYWN0cwIAAAAAAGSYQK_dxMADyeZgaEwy39tvVcj6AzaETD0xPIj6JC90A_EuN3AzFSUn5aDorE2cVYMMSiwF613MnG9f4Da3nOzpQLUGkbClwcvLxG-MSnXMJm5SsRyy2neuRUr4k5p_VNp_1CRyptnhaIrPkyeIz4RFxQRWYNuu-btBLzHXip0YEia-z1q8QqfyqFB9uhV62XVlsk0Tfor-NTFp51q0YnB3Flr2r9u3zEu_ASwkQozldG9mYz0gHJ2jsfcYcXen0JmdG5ZN4cgqMsh88sTmjxZARHbB1QdYJfCeSSpKTVZYARedNiVvkGN5D8bkFZZ1c5ztCPE20SLttCPAtTJaAD4Dl51Wi5KbQUDsvjaC5bJ5fBYB5r9L4UJRox7A0lqu785U__sl6UWEPL7j5jmGQJnkj0sRigvLgAizwdFmEUMvhSnJL7hCnWIbjt0cLuGPFbT07hIxcZlefXQNYzdTX48YM9jxBtNhgF0HvzsyVflzr6vV8jFcK1sHfyCG5WnWSIfQRPjw5CelgBmfRxg_q3Sp7oxPkzfatqSJxQjZz7hZFCvW6bXRAbF0VEudwv4W9BcejHxyYsINmSMSviFifhjvCwrNoTRuChpb1PHt8pUuWiJd6HCsvDkB9GjK8miCWAPspVvtlNpx3JP-9pnK1OnIF8d2WGwQuEeaVeqnuLtVVk-ZsEWw6tZVRScf53jRVFLSADL0Bc5L-tJdo-N3tzLjir6g489t0i6maTtI8fXmbEsLo6VPqVstyq_g3cw2odCtVQGNc9GxSH7sCL4a3oPLvak2Dsw-1qkGCJd7jb55q8V-gCzN1Rs5g9XZidjSr0L0Kihmg2qwu7ZSMOuzQfOQh2dg2PVMGhEKoih4icORt7rbcnqX8UNqfjeeWy8TAIwU0vp_0IyrlUWsFuJZgZO7KHtealRUz-Z4ChoiS_FqHNuS73Ra9LDvp-2QI2HF0eS3L5PfKyin1nngLAkO-LieHhvwnIVfvgouSxXnO7KlxEuNLicvVoFXylx4fQwHfqxPUWhQ3hBV6rZmEMbE95C7OwXr6U_r8WFj151ev0N494ASNuFEfwnsozUCQDlUi0ABdgtpIpf7EXJ60OOS0E0FHDDf2Td4NqVdSz7OBCC5e3Q4otFDf9-wQqnfauiyVJ85ehySUpKvQqHM7meDgj4f22iIY4qJAKvxT-vlnZCHYU9tFw6Uwr_0OdREnf7vvK-Ou9ffm5yvSOffxYI_uSckvGrxE50JsG65Tq4nQMHStctMACKtlLXvBUIOYlkHo_1vYxXd3Y6q1m7LFQ&session_state=005098ea-3194-f431-0157-4adf83599ac7#",
+  "title": "Microsoft account | Error",
+  "readyState": "complete",
+  "bodyText": "Skip to main content\nMicrosoft\nAccount\nHelp\nSign in to your account\nSorry, something went wrong.\n\nWe’re not sure what happened, but refreshing the page may help, or trying again in a little while.\n\nEnglish (United States)\nYour Privacy Choices\nConsumer Health Privacy\nPrivacy & cookies Terms of use Contact us Feedback © Microsoft 2026",
+  "inputs": [
+    {
+      "id": "cli_shellHeaderSearchInput",
+      "name": "q",
+      "type": "search",
+      "valueLength": 0,
+      "placeholder": "Search Microsoft.com",
+      "ariaLabel": "Search Expanded"
+    }
+  ],
+  "buttons": [
+    {
+      "id": "uhfSkipToMain",
+      "role": null,
+      "type": "",
+      "text": "Skip to main content"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "button",
+      "text": "All Microsoft expand to see list of Microsoft products and services"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "button",
+      "text": "Close search"
+    },
+    {
+      "id": "uhfLogo",
+      "role": null,
+      "type": "",
+      "text": "Microsoft"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "button",
+      "text": "See more menu options"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "button",
+      "text": "See more menu options"
+    },
+    {
+      "id": "uhfCatLogo",
+      "role": null,
+      "type": "",
+      "text": "Account"
+    },
+    {
+      "id": "uhfCatLogoButton",
+      "role": null,
+      "type": "button",
+      "text": "Account"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Home"
+    },
+    {
+      "id": "sharedshell-help",
+      "role": null,
+      "type": "",
+      "text": "Help"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "button",
+      "text": "More"
+    },
+    {
+      "id": "search",
+      "role": null,
+      "type": "submit",
+      "text": "Search Microsoft.com"
+    },
+    {
+      "id": "cancel-search",
+      "role": null,
+      "type": "submit",
+      "text": "Cancel"
+    },
+    {
+      "id": "mectrl_main_trigger",
+      "role": null,
+      "type": "",
+      "text": "Sign in to your account"
+    },
+    {
+      "id": "locale-picker-link",
+      "role": null,
+      "type": "",
+      "text": "English (United States)"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Your Privacy Choices"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Consumer Health Privacy"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Privacy & cookies"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Terms of use"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Contact us"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Feedback"
+    },
+    {
+      "id": "",
+      "role": null,
+      "type": "",
+      "text": "Manage cookies"
+    }
+  ]
+}

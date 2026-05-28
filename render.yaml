@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: microsoft-login-tester
+    runtime: docker
+    region: oregon
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: HEADLESS
+        value: "true"
+      - key: TIMEOUT_MS
+        value: "30000"
+      - key: MAX_RETRIES
+        value: "2"
+      - key: LOG_LEVEL
+        value: "info"
