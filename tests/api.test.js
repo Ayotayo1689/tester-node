@@ -1,6 +1,6 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
-const BASE_URL = process.env.TEST_URL || 'http://localhost:8000';
+const BASE_URL = process.env.TEST_URL || 'https://tester-node.onrender.com';
 
 async function fetchJson(url, options = {}) {
   const resp = await fetch(url, {

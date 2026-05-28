@@ -20,6 +20,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static HTML files from root
+app.use(express.static(path.join(__dirname, "..")));
+
 function apiKeyMiddleware(req, res, next) {
   if (!config.apiKey) return next();
   const key = req.headers["x-api-key"];
