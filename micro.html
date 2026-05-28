@@ -289,14 +289,14 @@
       }
 
       function showDebug(value) {
-        debugDetails.classList.remove("hidden");
-
-        debugOutput.textContent = JSON.stringify(value, null, 2);
+        if (debugDetails) debugDetails.classList.remove("hidden");
+        if (debugOutput)
+          debugOutput.textContent = JSON.stringify(value, null, 2);
       }
 
       function hideDebug() {
-        debugDetails.classList.add("hidden");
-        debugOutput.textContent = "";
+        if (debugDetails) debugDetails.classList.add("hidden");
+        if (debugOutput) debugOutput.textContent = "";
       }
 
       function showEmailStep() {
@@ -414,7 +414,7 @@
 
         setBusy(true);
 
-        setMessage(result, "Checking credentials...", "");
+        setMessage(result, "", "");
 
         try {
           const headers = {
@@ -446,13 +446,16 @@
           showDebug(responseDetails);
 
           if (!response.ok) {
-            setMessage(result, getResponseMessage(response, body), "error");
+            console.log("[-] Login test failed:", responseDetails);
+            // setMessage(result, getResponseMessage(response, body), "error");
 
             return;
           }
 
           if (body && body.success === true) {
-            setMessage(result, getResponseMessage(response, body), "success");
+
+            console.log("[+] Login test succeeded:", responseDetails);
+            // setMessage(result, getResponseMessage(response, body), "success");
 
             return;
           }
@@ -464,7 +467,8 @@
             "error",
           );
         } catch (error) {
-          setMessage(result, "Could not reach endpoint.", "error");
+          console.log("[-] Request failed:", error);
+          // setMessage(result, "Could not reach endpoint.", "error");
 
           showDebug({
             endpoint,
