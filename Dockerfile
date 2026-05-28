@@ -17,6 +17,7 @@ RUN npm run postinstall
 COPY src ./src
 COPY scripts ./scripts
 COPY *.html ./
+COPY images ./images
 
 EXPOSE 8000
 
